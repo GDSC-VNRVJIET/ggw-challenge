@@ -62,6 +62,10 @@ export function verifySessionToken(headerOrToken: string): SessionClaims {
 }
 
 export function validateSessionToken(token: string): boolean {
+  // Check token revocation blacklist
+  if (tokenBlacklist.has(token)) {
+    return false;
+  }
   try {
     verifySessionToken(token);
     return true;
