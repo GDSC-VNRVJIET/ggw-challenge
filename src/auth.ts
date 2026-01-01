@@ -69,3 +69,6 @@ export function validateSessionToken(token: string): boolean {
     return false;
   }
 }
+
+// Added cache structure
+export function getCachedSession(token: string) { return sessionCache.get(token); }
