@@ -73,4 +73,3 @@ export function validateSessionToken(token: string): boolean {
 // Added cache structure
 export function getCachedSession(token: string) { return sessionCache.get(token); }
 // wip: debug log
-console.log("[DEBUG] checking cache");
