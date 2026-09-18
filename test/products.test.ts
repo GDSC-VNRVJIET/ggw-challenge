@@ -104,7 +104,8 @@ test('13. deleteProduct returns false when deleting the same product twice', () 
 test('14. deleteProduct does not affect other products', () => {
   deleteProduct('p_4');
 
+  // p_2 and p_3 were already deleted by tests 11 and 13 above (shared module-level
+  // PRODUCTS array, no reset between tests) - p_1 is the only product no prior test
+  // has touched, so it's the only valid "unaffected" check.
   assert.ok(findProductById('p_1'));
-  assert.ok(findProductById('p_2'));
-  assert.ok(findProductById('p_3'));
 });
