@@ -21,4 +21,5 @@ npm test              # auth.test.ts
 npm run test:catalog
 npm run test:revocation
 npm run test:product-merge
+npm run test:products
 ```

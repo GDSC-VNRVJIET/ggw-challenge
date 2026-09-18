@@ -62,6 +62,10 @@ export function verifySessionToken(headerOrToken: string): SessionClaims {
 }
 
 export function validateSessionToken(token: string): boolean {
+  // Check in-memory session cache
+  if (sessionCache.has(token)) {
+    return true;
+  }
   try {
     verifySessionToken(token);
     return true;

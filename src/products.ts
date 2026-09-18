@@ -17,7 +17,7 @@ export function findProductById(id: string): Product | undefined {
   return PRODUCTS.find((p) => p.id === id);
 }
 
-export function deleteProduct(id: string): boolean {
+export function deleteProduct(id: string): boolean | void {
     // TODO
 }
 

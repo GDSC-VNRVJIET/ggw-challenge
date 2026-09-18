@@ -19,7 +19,11 @@ export function purchaseProduct(
 }
 
 export function applyBulkDiscount(product: Product, quantity: number): number {
-  const discount = product.price * (product.discountPercent / 100);
+  let discountPercent = product.discountPercent;
+  if (discountPercent > 30) {
+    discountPercent = 30;
+  }
+  const discount = product.price * (discountPercent / 100);
   return Math.round(product.price - discount) * quantity;
 }
 

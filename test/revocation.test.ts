@@ -17,9 +17,11 @@ test('revocation-2: blacklisted token is rejected even if cached', () => {
   tokenBlacklist.clear();
   const token = authenticateUser('bob', 'bob456');
   assert.ok(token);
+  // First, authenticate and cache
   validateSessionToken(token);
   assert.strictEqual(sessionCache.has(token), true);
 
+  // Now revoke/blacklist token
   tokenBlacklist.add(token);
   const isValidAfterRevoke = validateSessionToken(token);
   assert.strictEqual(isValidAfterRevoke, false, 'Revoked token must be rejected even if in cache');
